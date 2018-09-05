@@ -1,0 +1,39 @@
+{
+    "name": "vendor/Larachat",
+    "description": "Embed an chat system into your laravel application.",
+    "keywords": ["laravel","chat","php"],
+    "authors": [
+        {
+            "name": "Mohamed Kamel",
+            "email": "kamel1145@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.5.*|5.6.*",
+        "srmklive/paypal": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.0.*|7.0.*",
+        "orchestra/testbench": "3.5.*|3.6.*",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+       "psr-4": {
+            "Vendor\\Larachat\\": "src/Larachat"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vendor\\Larachat\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vendor\\Larachat\\ServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT"
+    
+}
