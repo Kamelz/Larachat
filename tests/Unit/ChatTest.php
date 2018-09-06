@@ -40,7 +40,7 @@ class ChatTest extends LarachatTestCase
     {
         $message = $this->makeMessage();   
         $messages = Message::getUserMessages($message['to']);
-        dd($messages);
+
         $this->assertSame($message['from']->id,$messages[0]['from']);
         $this->assertSame($message['to']->id,$messages[0]['to']);
         $this->assertSame($message['content'],$messages[0]['message']);
@@ -86,7 +86,6 @@ class ChatTest extends LarachatTestCase
 
 
     /**
-     * @todo
      * @test
      * @return void
      */
@@ -111,7 +110,6 @@ class ChatTest extends LarachatTestCase
     }
 
     /**
-     * @todo
      * @test
      * @return void
      */
@@ -127,12 +125,12 @@ class ChatTest extends LarachatTestCase
             $message['to'],
             'read_message'
         );
-
         $readMessage = Message::where('message','read_message')->first();
         $readMessage->is_read = 1;  
         $readMessage->save();  
 
-        $messages = Message::getUnreadMessages($messages['model']);
+
+        $messages = Message::getUnreadMessages($message['to']);
 
         $this->assertSame(1,$messages->count());
         $this->assertNotSame('read_message',$messages->first()->message);
