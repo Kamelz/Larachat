@@ -1,49 +1,110 @@
-# Laravel 5's Package Boilerplate
+# laravel messaging system
 
-A custom made Laravel5 package boilerplate made for package development purpose, which contains publish code for :
 
-- Config
-- View
-- Assets
-- Migrations
-- Seeds
-- Routes
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Send message](#send-message)
+  * [Mark message](#mark-message)
+  * [Get user messages](#get-user-messages)
+
+* [Unit Testing](#unit-testing)
+* [TODO](#todo)
+
+
+## Installation
+
+Install the package via composer:
+
+``` bash
+composer require Kamelz/Larachat
+```
+If you are using a laravel version older than 5.5 then add the service provider in `config/app.php`.
+
+```php
+'providers' => [
+    // ...
+    Kamelz\Larachat\LarachatServiceProvider::class,
+];
+```
+Publish migration files with: 
+
+```bash
+php artisan vendor:publish --provider="Kamelz\Larachat\LarachatServiceProvide" --tag="migrations"
+```
+After that run the migration command:
+
+```bash
+php artisan migrate
+```
 
 ## Usage
 
-1- Clone this repository into your package development folder.
+### Send message
+	
+```php
+You may pass a user model or the user ID in the $from and $to parameters.
 
-2- Change src/Package to your package name. Customize the package's composer.json autoload section to reflect the previous change.
+$from; 		// User model or Integer
+$to; 		// User model or Integer
+$message; 	// String message
 
-3- Customize **Package/PackageServiceProvider** with the correct namespace and the name of your package, and replace the $packageName attribute.
+Message::send($from,$to,$message);
+
+```
+
+### Mark message
 
 ```php
 
-    protected $packageName = 'yourpackagename';
+$message; // Message model
+
+$message->is_read; // 0
+
+Message::markAsRead($message);
+
+$message->is_read; // 1
 
 ```
 
-4- Add the package in your application's **composer.json** autoload section to make it available in your application. 
+You can also mark it as unread.
+
+```php
+
+$message; // Message model
+
+$message->is_read; // 1
+
+Message::markAsUnread($message);
+
+$message->is_read; // 0
 
 ```
 
-"psr-4": {
-            "App\\": "app/",
-            "Vendor\\Package\\": "packages/vendor/package/src/Package"
-        }
+### Get user messages
+
+```php
+
+$user; // User model or Integer
+
+Message::getUserMessages($user);
+
+Returns an `Eloquent\Collection` of `Message` model.
 
 ```
 
-5- Run :
+You can get read/unread messages
+
+```php
+
+$user; // User model or Integer
+
+Message::getUnreadMessages($user);
+Message::getRadMessages($user);
 
 ```
-composer dump-autoload
-```
 
-6- Add the newly create package's service provider to your **config/app.php** provider's list.
 
-7- Have fun!
+## TODO
 
-## Package dependencies
-
-Laravel won't autoload the **vendor/** path in your package's development folder. Easiest workaround is to add them in your main application's composer.json.
+	- Blade component 
+	- Send email  
