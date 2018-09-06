@@ -1,6 +1,6 @@
 {
     "name": "vendor/Larachat",
-    "description": "Embed an chat system into your laravel application.",
+    "description": "Embed chat system into your laravel application.",
     "keywords": ["laravel","chat","php"],
     "authors": [
         {
@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Vendor\\Larachat\\ServiceProvider"
+                "Vendor\\Larachat\\LarachatServiceProvider"
             ]
         }
     },
