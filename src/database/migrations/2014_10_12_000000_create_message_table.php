@@ -4,12 +4,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateAffiliateTable extends Migration
-{
-    public $userTableName; 
 
-    public $affiliateTableName; 
-    
+class CreateMessageTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -17,30 +14,19 @@ class CreateAffiliateTable extends Migration
      */
     public function up()
     {
-        //TODO refactor this
-  
-        $config = app()->config['Laraffiliate'];
 
-        $userModelName =  substr($config['user_model']['name'],strrpos($config['user_model']['name'], '\\')+1);
-
-        $affiliateModelName =  substr($config['affiliate_model']['name'],strrpos($config['affiliate_model']['name'], '\\')+1);
-
-        $this->userTableName = Str::plural(strtolower($userModelName ?? 'users'));
-
-        $this->affiliateTableName = Str::plural(strtolower($affiliateModelName ?? 'affiliate_payments'));
-
-        $method  = Schema::hasTable($this->userTableName)? 'table' : 'create';
-
-        Schema::$method($this->userTableName, function (Blueprint $table) use($config){
+        Schema::create('messages', function (Blueprint $table){
             
-            $affiliateCoulmn = $config['affiliate_model']['column']??'affiliate_id';
             $table->increments('id');  
-            $table->string('email');  
-            $table->string($affiliateCoulmn)->unique();  
-
-            $table->unsignedInteger('referred_by')->nullable();  
-            $table->foreign('referred_by')
-            ->references('id')->on($this->affiliateTableName);  
+            $table->unsignedInteger('from')->nullable();  
+            $table->unsignedInteger('to')->nullable();  
+            $table->string('message');  
+            $table->integer('is_read')->default(0);  
+            $table->foreign('from')
+            ->references('id')->on('users');
+           $table->foreign('to')
+            ->references('id')->on('users');  
+            $table->timestamps();
         });    
     }
  
@@ -51,6 +37,6 @@ class CreateAffiliateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->userTableName);
+        Schema::dropIfExists('messages');
     }
 }
