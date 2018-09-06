@@ -1,5 +1,5 @@
 {
-    "name": "vendor/Larachat",
+    "name": "vendor/larachat",
     "description": "Embed chat system into your laravel application.",
     "keywords": ["laravel","chat","php"],
     "authors": [
@@ -19,18 +19,18 @@
     },
     "autoload": {
        "psr-4": {
-            "Vendor\\Larachat\\": "src/Larachat"
+            "Vendor\\larachat\\": "src/larachat"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vendor\\Larachat\\Tests\\": "tests/"
+            "Vendor\\larachat\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vendor\\Larachat\\LarachatServiceProvider"
+                "Vendor\\larachat\\LarachatServiceProvider"
             ]
         }
     },
