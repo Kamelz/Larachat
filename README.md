@@ -29,7 +29,7 @@ If you are using a laravel version older than 5.5 then add the service provider 
 Publish migration files with: 
 
 ```bash
-php artisan vendor:publish --provider="Kamelz\Larachat\LarachatServiceProvide" --tag="migrations"
+php artisan vendor:publish
 ```
 After that run the migration command:
 
