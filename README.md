@@ -16,7 +16,7 @@
 Install the package via composer:
 
 ``` bash
-composer require Kamelz/Larachat
+composer require kamelz/larachat
 ```
 If you are using a laravel version older than 5.5 then add the service provider in `config/app.php`.
 
