@@ -1,5 +1,5 @@
 {
-    "name": "vendor/larachat",
+    "name": "Kamelz/larachat",
     "description": "Embed chat system into your laravel application.",
     "keywords": ["laravel","chat","php"],
     "authors": [
@@ -19,18 +19,18 @@
     },
     "autoload": {
        "psr-4": {
-            "Vendor\\larachat\\": "src/larachat"
+            "Kamelz\\Larachat\\": "src/Larachat"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vendor\\larachat\\Tests\\": "tests/"
+            "Kamelz\\Larachat\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vendor\\larachat\\LarachatServiceProvider"
+                "Kamelz\\Larachat\\LarachatServiceProvider"
             ]
         }
     },

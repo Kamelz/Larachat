@@ -1,9 +1,9 @@
 <?php
 
-namespace Vendor\Larachat\Tests\TestModels;
+namespace Kamelz\Larachat\Tests\TestModels;
 
 use Illuminate\Database\Eloquent\Model;
-use Vendor\Larachat\Traits\Affiliateable;
+use Kamelz\Larachat\Traits\Affiliateable;
 
 class User extends Model{
     

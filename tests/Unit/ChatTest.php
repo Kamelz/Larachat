@@ -1,9 +1,9 @@
 <?php
 
-namespace Vendor\Larachat\Tests\Unit;
-use Vendor\Larachat\Model\Message;
-use Vendor\Larachat\Tests\TestModels\User;
-use Vendor\Larachat\Tests\LarachatTestCase;
+namespace Kamelz\Larachat\Tests\Unit;
+use Kamelz\Larachat\Model\Message;
+use Kamelz\Larachat\Tests\TestModels\User;
+use Kamelz\Larachat\Tests\LarachatTestCase;
 
 class ChatTest extends LarachatTestCase
 {
