@@ -17,9 +17,12 @@ class LarachatServiceProvider extends ServiceProvider {
         // Regiter migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-            $this->publishes([
-                __DIR__.'/../database/migrations' => public_path('../database/migrations'),
-            ], 'public');
+        $timestamp = date('Y_m_d_His', time());
+
+
+        $this->publishes([
+                        __DIR__.'/../database/migrations/create_messages_tables.php.stub' => $this->app->databasePath()."/migrations/{$timestamp}_create_messages_tables.php",
+                    ], 'migrations');
 
 
     }
