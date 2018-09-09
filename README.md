@@ -105,6 +105,18 @@ Message::getRadMessages($user);
 ```
 
 
+## Unit Testing
+
+```bash
+
+vendor/phpunit/phpunit/phpunit
+
+```
+
+
+
+
+
 ## TODO
 
 	- Blade component 

@@ -19,9 +19,9 @@ class LarachatServiceProvider extends ServiceProvider {
 
         $timestamp = date('Y_m_d_His', time());
 
-
+        dd(public_path('../database/migrations')."/{$timestamp}_create_messages_tables.php");
         $this->publishes([
-                        __DIR__.'/../database/migrations/create_messages_tables.php.stub' => $this->app->databasePath()."/migrations/{$timestamp}_create_messages_tables.php",
+                        __DIR__.'/../database/migrations/create_messages_tables.php.stub' => public_path('../database/migrations')."/{$timestamp}_create_messages_tables.php",
                     ], 'migrations');
 
 
