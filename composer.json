@@ -19,12 +19,13 @@
     },
     "autoload": {
        "psr-4": {
-            "Kamelz\\Larachat\\": "src/Larachat"
+           "Kamelz\\Larachat\\": "src/Larachat"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Kamelz\\Larachat\\Tests\\": "tests/"
+
         }
     },
     "extra": {
