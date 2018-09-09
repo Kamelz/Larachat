@@ -1,12 +1,12 @@
 <?php
 
-namespace Vendor\Larachat\Tests;
+namespace Kamelz\Larachat\Tests;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Vendor\Larachat\Tests\TestModels\User;
-use Vendor\Larachat\LarachatServiceProvider;
+use Kamelz\Larachat\Tests\TestModels\User;
+use Kamelz\Larachat\LarachatServiceProvider;
 
 abstract class LarachatTestCase extends TestCase
 {

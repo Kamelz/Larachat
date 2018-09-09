@@ -1,9 +1,9 @@
 <?php
 
-namespace Vendor\Larachat\Model;
+namespace Kamelz\Larachat\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Vendor\Larachat\Traits\Affiliateable;
+use Kamelz\Larachat\Traits\Affiliateable;
 
 class Message extends Model{
 

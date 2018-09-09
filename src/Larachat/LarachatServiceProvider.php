@@ -1,9 +1,9 @@
 <?php 
 
-namespace Vendor\Larachat;
+namespace Kamelz\Larachat;
 
 use Illuminate\Support\ServiceProvider;
-use Vendor\Larachat\Commands\FooCommand;
+use Kamelz\Larachat\Commands\FooCommand;
 
 
 class LarachatServiceProvider extends ServiceProvider {
