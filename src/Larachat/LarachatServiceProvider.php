@@ -18,7 +18,7 @@ class LarachatServiceProvider extends ServiceProvider {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
             $this->publishes([
-                __DIR__.'/../database/migrations' => public_path('Kamelz/Larachat'),
+                __DIR__.'/../database/migrations' => public_path('../database/migrations/larachat-migrations'),
             ], 'public');
 
 
